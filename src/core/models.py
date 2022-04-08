@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 class Guest(models.Model):
     name = models.CharField(max_length=20)
-    age = models.IntegerField(default=0)
+    age = models.IntegerField()
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=30)
 

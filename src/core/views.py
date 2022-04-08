@@ -1,6 +1,11 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
-from core.models import Hotel, Room
-from core.serializers import HotelSerializer, HotelDetailSerializer, RoomSerializer
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
+from core.models import Guest, Hotel, Room
+from core.serializers import GuestSerializer, HotelSerializer, HotelDetailSerializer, RoomSerializer
+
+
+class GuestCreateAPI(CreateAPIView):
+    queryset = Guest
+    serializer_class = GuestSerializer
 
 
 class HotelListAPI(ListAPIView):
