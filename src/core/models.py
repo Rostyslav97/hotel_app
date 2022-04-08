@@ -1,6 +1,4 @@
-from email.policy import default
 from django.db import models
-from datetime import datetime, timedelta
 
 
 class Guest(models.Model):
@@ -24,8 +22,8 @@ class Hotel(models.Model):
 
 
 class Room(models.Model):
-    room_no = models.IntegerField(default=0)
-    price = models.FloatField(default=0.0)
+    room_no = models.IntegerField()
+    price = models.FloatField()
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     is_booked = models.BooleanField(default=False)
 
@@ -37,16 +35,12 @@ class Booking(models.Model):
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    num_of_guests = models.IntegerField(default=1)
-    checkin_date = models.DateField(default=datetime.now)
-    checkout_date = models.DateField(default=datetime.now)
-    is_checkout = models.BooleanField(default=False)
+    num_of_guests = models.IntegerField()
+    checkin_date = models.DateField()
+    checkout_date = models.DateField()
 
     def __str__(self) -> str:
         return self.guest.name
 
     def hotel_name(self) -> str:
         return self.hotel.hotel
-
-    def charge(self) -> float:
-        return self.is_checkout(self.checkout_date-self.checkin_date + timedelta(1)).days*self.room.price

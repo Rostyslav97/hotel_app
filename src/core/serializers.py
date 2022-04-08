@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Guest, Hotel, Room
+from core.models import Guest, Hotel, Room, Booking
 
 
 class GuestSerializer(serializers.ModelSerializer):
@@ -26,3 +26,8 @@ class RoomSerializer(serializers.ModelSerializer):
         model = Room
         fields = ("room_no", "price", "hotel", "is_booked")
 
+
+class BookingCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        exclude = ("id", )
