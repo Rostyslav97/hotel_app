@@ -20,7 +20,7 @@ class HotelDetailSerializer(serializers.ModelSerializer):
         fields = ("name", "location", "phone", "email")
 
 
-class HotelCreateSerializer(serializers.ModelSerializer):
+class HotelCreateUpdateDestroySerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
         exclude = ("id", )
