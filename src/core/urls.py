@@ -1,5 +1,7 @@
 from django.urls import path
-from core.views import GuestListCreateAPI, GuestRetrieveUpdateDestroyAPIView, HotelListAPI, HotelRetrieveAPI, HotelCreateAPI, HotelUpdateAPI, HotelDestroyAPI, RoomListAPI, RoomRetrieveAPI, RoomCreateAPI, RoomUpdateAPI, RoomDestroyAPI, BookingListCreateAPI, BookingRetrieveUpdateDestroyAPIView
+from core.views import GuestListCreateAPI, GuestRetrieveUpdateDestroyAPIView, HotelListAPI, HotelRetrieveAPI, \
+    HotelCreateAPI, HotelUpdateAPI, HotelDestroyAPI, RoomListAPI, RoomRetrieveAPI, RoomCreateAPI, RoomUpdateAPI, \
+    RoomDestroyAPI, BookingListCreateAPI, BookingRetrieveUpdateDestroyAPIView
 
 
 urlpatterns = [
