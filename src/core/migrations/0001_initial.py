@@ -64,9 +64,7 @@ class Migration(migrations.Migration):
                 ("is_booked", models.BooleanField(default=False)),
                 (
                     "hotel",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="core.hotel"
-                    ),
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="core.hotel"),
                 ),
             ],
         ),
@@ -87,21 +85,15 @@ class Migration(migrations.Migration):
                 ("checkout_date", models.DateField()),
                 (
                     "guest",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="core.guest"
-                    ),
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="core.guest"),
                 ),
                 (
                     "hotel",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="core.hotel"
-                    ),
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="core.hotel"),
                 ),
                 (
                     "room",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="core.room"
-                    ),
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="core.room"),
                 ),
             ],
         ),
