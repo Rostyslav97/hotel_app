@@ -5,18 +5,18 @@ from core.views import GuestListCreateAPI, GuestRetrieveUpdateDestroyAPIView, Ho
 
 
 urlpatterns = [
-    path("guest/", GuestListCreateAPI.as_view()),
-    path("guest/<int:id>/", GuestRetrieveUpdateDestroyAPIView.as_view()),
+    path("guests/", GuestListCreateAPI.as_view()),
+    path("guests/<int:id>/", GuestRetrieveUpdateDestroyAPIView.as_view()),
     path("hotels/", HotelListAPI.as_view()),
-    path("hotel/<int:id>/", HotelRetrieveAPI.as_view()),
-    path("hotel/create/", HotelCreateAPI.as_view()),
-    path("hotel/update/<int:id>/", HotelUpdateAPI.as_view()),
-    path("hotel/delete/<int:id>/", HotelDestroyAPI.as_view()),
+    path("hotels/<int:id>/", HotelRetrieveAPI.as_view()),
+    path("hotels/create/", HotelCreateAPI.as_view()),
+    path("hotels/update/<int:id>/", HotelUpdateAPI.as_view()),
+    path("hotels/delete/<int:id>/", HotelDestroyAPI.as_view()),
     path("rooms/", RoomListAPI.as_view()),
-    path("room/<int:id>/", RoomRetrieveAPI.as_view()),
-    path("room/create/", RoomCreateAPI.as_view()),
-    path("room/update/<int:id>/", RoomUpdateAPI.as_view()),
-    path("room/delete/<int:id>/", RoomDestroyAPI.as_view()),
-    path("booking/", BookingListCreateAPI.as_view()),
-    path("booking/<int:id>/", BookingRetrieveUpdateDestroyAPIView.as_view())
+    path("rooms/<int:id>/", RoomRetrieveAPI.as_view()),
+    path("rooms/create/", RoomCreateAPI.as_view()),
+    path("rooms/update/<int:id>/", RoomUpdateAPI.as_view()),
+    path("rooms/delete/<int:id>/", RoomDestroyAPI.as_view()),
+    path("bookings/", BookingListCreateAPI.as_view()),
+    path("bookings/<int:id>/", BookingRetrieveUpdateDestroyAPIView.as_view())
 ]

@@ -1,3 +1,4 @@
+from dataclasses import fields
 from rest_framework import serializers
 from core.models import Guest, Hotel, Room, Booking
 
@@ -5,32 +6,32 @@ from core.models import Guest, Hotel, Room, Booking
 class GuestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guest
-        fields = ("name", "age", "phone", "email")
+        fields = ("id", "name", "age", "phone", "email")
         
 
 class HotelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ("name", )
+        fields = ("id", "name", )
 
 
 class HotelDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ("name", "location", "phone", "email")
+        fields = ("id", "name", "location", "phone", "email")
 
 
 class HotelCreateUpdateDestroySerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        exclude = ("id", )
+        fields = "__all__"
 
 
 class RoomSerializer(serializers.ModelSerializer):
     hotel = serializers.SlugRelatedField(slug_field="name", read_only=True)
     class Meta:
         model = Room
-        fields = ("room_no", "price", "hotel", "is_booked")
+        fields = ("id", "room_no", "price", "hotel", "is_booked")
 
 
 class BookingCreateSerializer(serializers.ModelSerializer):
@@ -39,4 +40,4 @@ class BookingCreateSerializer(serializers.ModelSerializer):
     room = serializers.SlugRelatedField(slug_field="room_no", read_only=True)
     class Meta:
         model = Booking
-        exclude = ("id", )
+        fields = "__all__"
