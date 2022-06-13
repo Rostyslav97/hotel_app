@@ -8,50 +8,101 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Guest',
+            name="Guest",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('age', models.IntegerField()),
-                ('phone', models.CharField(max_length=20)),
-                ('email', models.CharField(max_length=30)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
+                ("age", models.IntegerField()),
+                ("phone", models.CharField(max_length=20)),
+                ("email", models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
-            name='Hotel',
+            name="Hotel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('location', models.CharField(max_length=50)),
-                ('phone', models.CharField(max_length=20)),
-                ('email', models.CharField(max_length=30)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
+                ("location", models.CharField(max_length=50)),
+                ("phone", models.CharField(max_length=20)),
+                ("email", models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
-            name='Room',
+            name="Room",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('room_no', models.IntegerField()),
-                ('price', models.FloatField()),
-                ('is_booked', models.BooleanField(default=False)),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.hotel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("room_no", models.IntegerField()),
+                ("price", models.FloatField()),
+                ("is_booked", models.BooleanField(default=False)),
+                (
+                    "hotel",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.hotel"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Booking',
+            name="Booking",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('num_of_guests', models.IntegerField()),
-                ('checkin_date', models.DateField()),
-                ('checkout_date', models.DateField()),
-                ('guest', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.guest')),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.hotel')),
-                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.room')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("num_of_guests", models.IntegerField()),
+                ("checkin_date", models.DateField()),
+                ("checkout_date", models.DateField()),
+                (
+                    "guest",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.guest"
+                    ),
+                ),
+                (
+                    "hotel",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.hotel"
+                    ),
+                ),
+                (
+                    "room",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.room"
+                    ),
+                ),
             ],
         ),
     ]
