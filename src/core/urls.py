@@ -17,19 +17,22 @@ from core.views import (
 )
 
 
+app_name = "core"
+
+
 urlpatterns = [
-    path("guests/", GuestListCreateAPI.as_view()),
-    path("guests/<int:id>/", GuestRetrieveUpdateDestroyAPIView.as_view()),
-    path("hotels/", HotelListAPI.as_view()),
-    path("hotels/<int:id>/", HotelRetrieveAPI.as_view()),
-    path("hotels/create/", HotelCreateAPI.as_view()),
-    path("hotels/update/<int:id>/", HotelUpdateAPI.as_view()),
-    path("hotels/delete/<int:id>/", HotelDestroyAPI.as_view()),
-    path("rooms/", RoomListAPI.as_view()),
-    path("rooms/<int:id>/", RoomRetrieveAPI.as_view()),
-    path("rooms/create/", RoomCreateAPI.as_view()),
-    path("rooms/update/<int:id>/", RoomUpdateAPI.as_view()),
-    path("rooms/delete/<int:id>/", RoomDestroyAPI.as_view()),
-    path("bookings/", BookingListCreateAPI.as_view()),
-    path("bookings/<int:id>/", BookingRetrieveUpdateDestroyAPIView.as_view()),
+    path("guests/", GuestListCreateAPI.as_view(), name="list_guests"),
+    path("guests/<int:id>/", GuestRetrieveUpdateDestroyAPIView.as_view(), name="retrieve_update_destroy_guests"),
+    path("hotels/", HotelListAPI.as_view(), name="list_hotels"),
+    path("hotels/<int:id>/", HotelRetrieveAPI.as_view(), name="retrieve_hotels"),
+    path("hotels/create/", HotelCreateAPI.as_view(), name="create_hotels"),
+    path("hotels/update/<int:id>/", HotelUpdateAPI.as_view(), name="update_hotels"),
+    path("hotels/destroy/<int:id>/", HotelDestroyAPI.as_view(), name="destroy_hotels"),
+    path("rooms/", RoomListAPI.as_view(), name="list_rooms"),
+    path("rooms/<int:id>/", RoomRetrieveAPI.as_view(), name="retrieve_rooms"),
+    path("rooms/create/", RoomCreateAPI.as_view(), name="create_rooms"),
+    path("rooms/update/<int:id>/", RoomUpdateAPI.as_view(), name="update_rooms"),
+    path("rooms/destroy/<int:id>/", RoomDestroyAPI.as_view(), name="destroy_rooms"),
+    path("bookings/", BookingListCreateAPI.as_view(), name="list_bookings"),
+    path("bookings/<int:id>/", BookingRetrieveUpdateDestroyAPIView.as_view(), name="retrieve_update_destroy_bookings"),
 ]

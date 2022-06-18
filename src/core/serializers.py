@@ -30,7 +30,7 @@ class HotelCreateUpdateDestroySerializer(serializers.ModelSerializer):
 
 
 class RoomSerializer(serializers.ModelSerializer):
-    hotel = serializers.SlugRelatedField(slug_field="name", read_only=True)
+    hotel = HotelDetailSerializer(read_only=True)
 
     class Meta:
         model = Room
